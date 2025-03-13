@@ -20,18 +20,13 @@ chromedriver_path = os.path.join(folder, "chromedriver.exe")
 #Base url
 base_url = "https://www.facebook.com/marketplace/108483599175593/search?"
 
-#Facebook login
-user_email = "j47075473@gmail.com"
-user_password = "John15505225"
-
-
 #Search parameters
-min_price = int(input("Minimum Price> "))
-max_price = int(input("Maximum Price> "))
+min_price = input("Minimum Price> ")
+max_price = input("Maximum Price> ")
 min_mileage = 1000
-max_mileage = int(input("Maximum Mileage> "))
-min_year = int(input("Minimum Year> "))
-max_year = int(input("Maximum Year> "))
+max_mileage = input("Maximum Mileage> ")
+min_year = input("Minimum Year> ")
+max_year = input("Maximum Year> ")
 transmission = input("Automatic or Manual> ").lower()
 make = input("Make> ")
 model = input("Model> ")
@@ -57,24 +52,6 @@ except:
     print("Couldn't find close button")
     pass
 
-"""
-time.sleep(2)
-email = browser.find_element(By.CSS_SELECTOR, "input[type='email']")
-email.send_keys(user_email)
-time.sleep(1)
-password = browser.find_element(By.CSS_SELECTOR, "input[type='password']")
-password.send_keys(user_password)
-
-time.sleep(1.5)
-
-try:
-    login_button = browser.find_element(By.XPATH, '//div[@aria-label="Log In" and @role="button"]')
-    login_button.click()
-    print("Login button clicked!")
-except:
-    print("Couldn't find login button")
-    pass
-"""
 time.sleep(2)
 #Scroll down to load more vehicle listings
 browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
