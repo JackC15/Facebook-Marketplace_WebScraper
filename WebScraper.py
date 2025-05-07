@@ -1,6 +1,5 @@
 # Jack Canada
 # Version: 0.0.1
-
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
@@ -57,7 +56,6 @@ if __name__ == '__main__':
 
     #Setup full url
     search_url = f"{base_url}minPrice={min_price}&maxPrice={max_price}&maxMileage={max_mileage}&maxYear={max_year}&minMileage={min_mileage}&minYear={min_year}&transmissionType={transmission}&query={make}{model}&radius={radius}&exact=false"
-
     browser.get(search_url)
 
     time.sleep(1.5)
