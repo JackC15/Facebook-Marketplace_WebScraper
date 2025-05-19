@@ -14,7 +14,7 @@ import re
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def Graph_Creation(x, y, title, data):
+def Graph_Creation(x, y, title, data, make, model):
     #Analysis using charts
     plt.figure(figsize=(12, 6))
     plt.xlabel(x)
@@ -26,7 +26,7 @@ def Graph_Creation(x, y, title, data):
     plt.show()
     
     
-if __name__ == '__main__':
+def fbScraper():
     #Configure ChromeDriver
     chrome_install = ChromeDriverManager().install()
     folder = os.path.dirname(chrome_install)
@@ -153,13 +153,13 @@ if __name__ == '__main__':
     print(filtered_df)
 
     yearly_prices = filtered_df.groupby("Year")["Price"].mean()
-    Graph_Creation('Year', 'Price', 'Average Price by Year', yearly_prices)
+    Graph_Creation('Year', 'Price', 'Average Price by Year', yearly_prices, make, model)
     
     yearly_mileage = filtered_df.groupby("Year")["Mileage"].mean()
-    Graph_Creation('Year', 'Mileage', 'Average Mileage by Year', yearly_mileage)
+    Graph_Creation('Year', 'Mileage', 'Average Mileage by Year', yearly_mileage, make, model)
     
     yearly_count = filtered_df.groupby("Year").size()
-    Graph_Creation('Year', 'Number of Listings', 'Number of Listings by Year', yearly_count)
+    Graph_Creation('Year', 'Number of Listings', 'Number of Listings by Year', yearly_count, make, model)
 
     file_name = f'{make} {model} Data.csv'
     folder_name = 'Data Spreadsheets' 
@@ -170,3 +170,6 @@ if __name__ == '__main__':
     filtered_df.to_csv(relative_path, index=False)
 
     print("Done")
+    
+if __name__ == '__main__':
+    fbScraper()
